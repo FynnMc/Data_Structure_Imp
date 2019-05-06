@@ -50,9 +50,8 @@ class DynamicArray():
         return self.A[ind]
 
 
-# F = DynamicArray()
+class Hash():
+    pass
 
-# F.append(5)
-# print(F.retrieve(0))
 
 
