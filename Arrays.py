@@ -96,7 +96,65 @@ class Hash:
         raise KeyError
 
 
-test = Hash(4, [(24, 'Hello'), (123541, 'There'), (2, 'World'), (100000003, '!')])
-test.append([(1, 2), (3, 4)])
-print(test.delete(3))
-print(test.hash_table)
+# test = Hash(4, [(24, 'Hello'), (123541, 'There'), (2, 'World'), (100000003, '!')])
+# test.append([(1, 2), (3, 4)])
+# print(test.delete(3))
+# print(test.hash_table)
+
+
+class StackQueue:
+
+    def __init__(self):
+        self.structure = []
+
+    def empty(self):
+        if len(self.structure) == 0:
+            return True
+        return False
+
+
+class Stack(StackQueue):
+
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def push(self, ele):
+        return self.structure.append(ele)
+
+    def pop(self):
+        if self.empty() is False:
+            del self.structure[-1]
+            return self.structure
+        return "Pop Error: Stack Empty"
+
+
+class Queue(StackQueue):
+
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def queue(self, ele):
+        if type(ele) != int:
+            return "Type Error: Require Integer Input Type"
+        self.structure = [ele] + self.structure
+        return self.structure
+
+    def dequeue(self):
+        if self.empty() is False:
+            del self.structure[-1]
+            return self.structure
+        return "Pop Error: Stack Empty"
+
+
+s = Stack()
+q = Queue()
+
+s.push(1)
+s.push(2)
+s.push(3)
+print(s.structure)
+
+q.queue(1)
+q.queue(2)
+q.queue(3)
+print(q.structure)
